@@ -5,13 +5,14 @@ A zero-dependency, lightweight Python automation tool designed to check the heal
 ## Key Features
 - **Zero Dependencies:** Built entirely with native Python libraries. No installation overhead.
 - **One-Line Installer:** Automatically injects shell aliases for rapid deployment.
-- **Fault-Tolerant Architecture:** Wrapped in structural try-except blocks to prevent runtime crashes during network timeouts.
-- **Easy Customization:** Target endpoints are clearly marked inside the code for corporate personalization.
+- **Instant Execution:** Type just a single letter (**`l`**) and press Enter to run the full check-up pipeline immediately after installation.
+- **Fully Customizable:** Easily change the tracking endpoints or modify the shortcut token (`l`) to any custom command that fits your environment.
 
-> 💡 **Core Customization Note / Özelleştirme Notu:**
-> The installation script below contains predefined placeholder URLs. The specific section where you need to input your own company's web services and private APIs is clearly marked with a `⚠️ ENTERPRISE TARGET CONFIGURATION` comment block inside the code.
+> 💡 **Core Customization & Usage Note / Özelleştirme ve Kullanım Notu:**
 > 
-> (Aşağıdaki kurulum kodunun içerisinde kendi şirketinize ait web sitelerini ve özel API adreslerinizi yazmanız gereken alan, kod içinde `⚠️ ENTERPRISE TARGET CONFIGURATION` etiketiyle net bir şekilde işaretlenmiştir.)
+> **EN:** After running the installation command below, simply type **`l`** and hit Enter to trigger the monitor. If you wish to change the monitored APIs or customize the single-letter shortcut command, the exact configuration lines are clearly marked inside the code and detailed in the customization guide below.
+> 
+> **TR:** Aşağıdaki kurulum komutunu sunucuya yapıştırıp Enter dedikten sonra, sistemi çalıştırmak için sadece **`l`** yazıp Enter'a basmanız yeterlidir. İzlenecek adresleri kendi şirketinize göre değiştirmek veya `l` kısayol harfini kendinize göre güncellemek isterseniz, ilgili alanlar kodun içinde net bir şekilde işaretlenmiştir.
 
 ## Quick Installation
 
