@@ -1,9 +1,23 @@
+# Enterprise Infrastructure & API Monitor
+
+A zero-dependency, lightweight Python automation tool designed to check the health status and latency of critical enterprise web services, payment gateways, and APIs directly from the terminal.
+
+## Key Features
+- **Zero Dependencies:** Built entirely with native Python libraries. No installation overhead.
+- **One-Line Installer:** Automatically injects shell aliases for rapid deployment.
+- **Fault-Tolerant Architecture:** Wrapped in structural try-except blocks to prevent runtime crashes during network timeouts.
+
+## Quick Installation
+
+Run the following command in your Linux/Termux terminal for seamless integration:
+
+```bash
+cat << 'EOF' > ~/.service_checker.py
 # -*- coding: utf-8 -*-
 import sys
 import urllib.request
 import time
 
-# --- LOGGING COLOR CONSTANTS ---
 COLOR_INFO = "\033[1;36m"
 COLOR_SUCCESS = "\033[1;32m"
 COLOR_FAILURE = "\033[1;31m"
@@ -36,11 +50,10 @@ def execute_monitor():
         print(f"{COLOR_INFO}==============================================={COLOR_RESET}")
         print(f"{COLOR_SUCCESS}Status:{COLOR_RESET} Initializing core dependency checks...\n")
         
-        # Core Infrastructure Target Verification
-        verify_service_status("Payment Gateway API", "https://api.iyzipay.com")
-        verify_service_status("E-Commerce Platform", "https://www.shopify.com")
-        verify_service_status("Corporate CRM Service", "https://api.hubapi.com")
-        verify_service_status("Global Network Mesh", "https://www.google.com")
+        verify_service_status("Payment Gateway API", "[https://api.iyzipay.com](https://api.iyzipay.com)")
+        verify_service_status("E-Commerce Platform", "[https://www.shopify.com](https://www.shopify.com)")
+        verify_service_status("Corporate CRM Service", "[https://api.hubapi.com](https://api.hubapi.com)")
+        verify_service_status("Global Network Mesh", "[https://www.google.com](https://www.google.com)")
         
         print(f"\n{COLOR_INFO}-----------------------------------------------{COLOR_RESET}")
         print(f"{COLOR_INFO}Execution:{COLOR_RESET} Pipeline completed successfully.")
@@ -50,4 +63,16 @@ def execute_monitor():
 
 if __name__ == "__main__":
     execute_monitor()
-    
+EOF
+chmod +x ~/.service_checker.py
+
+CONFIG_TARGET="$HOME/.bashrc"
+[ -f "$HOME/.zshrc" ] && CONFIG_TARGET="$HOME/.zshrc"
+sed -i '/alias l=/d' $CONFIG_TARGET
+echo "alias l='python3 ~/.service_checker.py'" >> $CONFIG_TARGET
+source $CONFIG_TARGET 2>/dev/null
+
+clear
+echo -e "\033[1;32m[✓] Enterprise monitoring script initialized successfully.\033[0m"
+echo -e "Command token: \033[1;36ml\033[0m\n"
+python3 ~/.service_checker.py
