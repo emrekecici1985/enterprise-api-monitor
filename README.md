@@ -5,14 +5,14 @@ A zero-dependency, lightweight Python automation tool designed to check the heal
 ## Key Features
 - **Zero Dependencies:** Built entirely with native Python libraries. No installation overhead.
 - **One-Line Installer:** Automatically injects shell aliases for rapid deployment.
-- **Instant Execution:** Type just a single letter (**`l`**) and press Enter to run the full check-up pipeline immediately after installation.
-- **Fully Customizable:** Easily change the tracking endpoints or modify the shortcut token (`l`) to any custom command that fits your environment.
+- **Instant Execution:** Type just a single letter (**l**) and press Enter to run the full check-up pipeline immediately after installation.
+- **Fully Customizable Command Token:** Don't want to use **l**? You can easily change this single-letter shortcut to any custom word or command (`check`, `monitor`, etc.) directly from the marked installation block.
 
 > 💡 **Core Customization & Usage Note / Özelleştirme ve Kullanım Notu:**
 > 
-> **EN:** After running the installation command below, simply type **`l`** and hit Enter to trigger the monitor. If you wish to change the monitored APIs or customize the single-letter shortcut command, the exact configuration lines are clearly marked inside the code and detailed in the customization guide below.
+> **EN:** After running the installation command below, simply type **l** and hit Enter to trigger the monitor. If you wish to change the monitored APIs or customize the single-letter shortcut command, the exact configuration lines are clearly marked inside the code and detailed in the customization guide below.
 > 
-> **TR:** Aşağıdaki kurulum komutunu sunucuya yapıştırıp Enter dedikten sonra, sistemi çalıştırmak için sadece **`l`** yazıp Enter'a basmanız yeterlidir. İzlenecek adresleri kendi şirketinize göre değiştirmek veya `l` kısayol harfini kendinize göre güncellemek isterseniz, ilgili alanlar kodun içinde net bir şekilde işaretlenmiştir.
+> **TR:** Aşağıdaki kurulum komutunu sunucuya yapıştırıp Enter dedikten sonra, sistemi çalıştırmak için sadece **l** yazıp Enter'a basmanız yeterlidir. İzlenecek adresleri kendi şirketinize göre değiştirmek veya **l** kısayol harfini kendinize göre güncellemek isterseniz, ilgili alanlar kodun içinde net bir şekilde işaretlenmiştir.
 
 ## Quick Installation
 
@@ -74,6 +74,9 @@ if __name__ == "__main__":
 EOF
 chmod +x ~/.service_checker.py
 
+# ⚠️ CUSTOM SHORTCUT CONFIGURATION (Kısayol Harfini Buradan Değiştirebilirsiniz)
+# EN: Change 'alias l=' to your preferred command (e.g., 'alias check=')
+# TR: Kısayolu değiştirmek için 'alias l=' alanını düzenleyin (Örn: 'alias check=')
 CONFIG_TARGET="$HOME/.bashrc"
 [ -f "$HOME/.zshrc" ] && CONFIG_TARGET="$HOME/.zshrc"
 sed -i '/alias l=/d' $CONFIG_TARGET
