@@ -6,6 +6,11 @@ A zero-dependency, lightweight Python automation tool designed to check the heal
 - **Zero Dependencies:** Built entirely with native Python libraries. No installation overhead.
 - **One-Line Installer:** Automatically injects shell aliases for rapid deployment.
 - **Fault-Tolerant Architecture:** Wrapped in structural try-except blocks to prevent runtime crashes during network timeouts.
+- **Easy Customization:** Target endpoints are clearly marked inside the code for corporate personalization.
+
+> 💡 **Core Customization Note / Özelleştirme Notu:** > The installation script below contains predefined placeholder URLs. The specific section where you need to input your own company's web services and private APIs is clearly marked with a `⚠️ ENTERPRISE TARGET CONFIGURATION` comment block inside the code.
+> 
+> (Aşağıdaki kurulum kodunun içerisinde kendi şirketinize ait web sitelerini ve özel API adreslerinizi yazmanız gereken alan, kod içinde `⚠️ ENTERPRISE TARGET CONFIGURATION` etiketiyle net bir şekilde işaretlenmiştir.)
 
 ## Quick Installation
 
