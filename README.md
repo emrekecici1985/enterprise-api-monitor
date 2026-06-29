@@ -50,9 +50,10 @@ def execute_monitor():
         print(f"{COLOR_INFO}==============================================={COLOR_RESET}")
         print(f"{COLOR_SUCCESS}Status:{COLOR_RESET} Initializing core dependency checks...\n")
         
+        # ⚠️ ENTERPRISE TARGET CONFIGURATION (Şirket Adreslerinizi Buraya Girin)
+        verify_service_status("Main Corporate Web", "[https://yourcompany.com](https://yourcompany.com)")
         verify_service_status("Payment Gateway API", "[https://api.iyzipay.com](https://api.iyzipay.com)")
-        verify_service_status("E-Commerce Platform", "[https://www.shopify.com](https://www.shopify.com)")
-        verify_service_status("Corporate CRM Service", "[https://api.hubapi.com](https://api.hubapi.com)")
+        verify_service_status("Core Microservice", "[https://api.yourcompany.com/v1/health](https://api.yourcompany.com/v1/health)")
         verify_service_status("Global Network Mesh", "[https://www.google.com](https://www.google.com)")
         
         print(f"\n{COLOR_INFO}-----------------------------------------------{COLOR_RESET}")
