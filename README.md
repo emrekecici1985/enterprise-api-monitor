@@ -6,7 +6,7 @@ A zero-dependency, lightweight Python automation tool designed to check the heal
 - **Zero Dependencies:** Built entirely with native Python libraries. No installation overhead.
 - **One-Line Installer:** Automatically injects shell aliases for rapid deployment.
 - **Instant Execution:** Type just a single letter (**l**) and press Enter to run the full check-up pipeline immediately after installation.
-- **Fully Customizable Command Token:** Don't want to use **l**? You can easily change this single-letter shortcut to any custom word or command (`check`, `monitor`, etc.) directly from the marked installation block.
+- **Fully Customizable Command Token:** Don't want to use **l**? You can easily change this single-letter shortcut to any custom word or command (`check`, `monitor`, etc.) directly from the marked configuration variable at the top of the script.
 
 > 💡 **Core Customization & Usage Note / Özelleştirme ve Kullanım Notu:**
 > 
@@ -19,6 +19,11 @@ A zero-dependency, lightweight Python automation tool designed to check the heal
 Run the following command in your Linux/Termux terminal for seamless integration:
 
 ```bash
+# ⚠️ CUSTOM SHORTCUT CONFIGURATION (Kısayol Harfini Buradan Değiştirebilirsiniz)
+# EN: Change KISAYOL="l" to your preferred command (e.g., KISAYOL="check")
+# TR: Kısayol harfini veya kelimesini değiştirmek için sadece aşağıdaki "l" harfini düzenleyin:
+KISAYOL="l"
+
 cat << 'EOF' > ~/.service_checker.py
 # -*- coding: utf-8 -*-
 import sys
@@ -74,16 +79,13 @@ if __name__ == "__main__":
 EOF
 chmod +x ~/.service_checker.py
 
-# ⚠️ CUSTOM SHORTCUT CONFIGURATION (Kısayol Harfini Buradan Değiştirebilirsiniz)
-# EN: Change 'alias l=' to your preferred command (e.g., 'alias check=')
-# TR: Kısayolu değiştirmek için 'alias l=' alanını düzenleyin (Örn: 'alias check=')
 CONFIG_TARGET="$HOME/.bashrc"
 [ -f "$HOME/.zshrc" ] && CONFIG_TARGET="$HOME/.zshrc"
-sed -i '/alias l=/d' $CONFIG_TARGET
-echo "alias l='python3 ~/.service_checker.py'" >> $CONFIG_TARGET
+sed -i "/alias ${KISAYOL}=/d" $CONFIG_TARGET
+echo "alias ${KISAYOL}='python3 ~/.service_checker.py'" >> $CONFIG_TARGET
 source $CONFIG_TARGET 2>/dev/null
 
 clear
 echo -e "\033[1;32m[✓] Enterprise monitoring script initialized successfully.\033[0m"
-echo -e "Command token: \033[1;36ml\033[0m\n"
+echo -e "Command token: \033[1;36m${KISAYOL}\033[0m\n"
 python3 ~/.service_checker.py
